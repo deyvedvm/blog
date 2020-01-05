@@ -3,10 +3,10 @@
 module.exports = {
   url: 'https://lumen.netlify.com',
   pathPrefix: '/',
-  title: 'Blog by John Doe',
-  subtitle: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+  title: 'Blog by Deyve Machado',
+  subtitle: 'Success is the sum of small efforts repeated day after day',
   copyright: '© All rights reserved.',
-  disqusShortname: '',
+  disqusShortname: 'deyvedvm',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-73379983-2',
   useKatex: false,
@@ -25,23 +25,23 @@ module.exports = {
     }
   ],
   author: {
-    name: 'John Doe',
+    name: 'Deyve Machado',
     photo: '/photo.jpg',
-    bio: 'Pellentesque odio nisi, euismod in, pharetra a, ultricies in, diam. Sed arcu.',
+    bio: 'Success is the sum of small efforts repeated day after day',
     contacts: {
-      email: '',
+      email: 'dvmachado@id.uff.br',
       facebook: '#',
       telegram: '#',
-      twitter: '#',
-      github: '#',
+      twitter: 'https://twitter.com/deyvedvm',
+      github: 'https://github.com/deyvedvm',
       rss: '',
       vkontakte: '',
-      linkedin: '#',
-      instagram: '#',
+      linkedin: 'https://www.linkedin.com/in/deyvevieiramachado/',
+      instagram: 'https://www.instagram.com/deyvedvm/',
       line: '',
       gitlab: '',
       weibo: '',
-      codepen: '',
+      codepen: 'https://codepen.io/deyve',
       youtube: ''
     }
   }
