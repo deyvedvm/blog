@@ -2,7 +2,7 @@
 
 module.exports = {
   url: 'https://lumen.netlify.com',
-  pathPrefix: '/',
+  pathPrefix: 'https://github.com/deyvedvm/blog',
   title: 'Blog by Deyve Machado',
   subtitle: 'Success is the sum of small efforts repeated day after day',
   copyright: '© All rights reserved.',
