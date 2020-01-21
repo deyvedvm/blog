@@ -32,16 +32,16 @@ module.exports = {
       email: 'dvmachado@id.uff.br',
       facebook: '#',
       telegram: '#',
-      twitter: 'https://twitter.com/deyvedvm',
-      github: 'https://github.com/deyvedvm',
+      twitter: 'deyvedvm',
+      github: 'deyvedvm',
       rss: '',
       vkontakte: '',
-      linkedin: 'https://www.linkedin.com/in/deyvevieiramachado/',
-      instagram: 'https://www.instagram.com/deyvedvm/',
+      linkedin: 'deyvevieiramachado',
+      instagram: 'deyvedvm',
       line: '',
       gitlab: '',
       weibo: '',
-      codepen: 'https://codepen.io/deyve',
+      codepen: 'deyve',
       youtube: ''
     }
   }
