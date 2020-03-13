@@ -1,14 +1,14 @@
 ---
-title: Hello World Catsby
-date: "2020-01-05T15:43:00.000Z"
+title: Java - Equals and HashCode
+date: "2020-03-13T01:39:05.944Z"
 template: "post"
-draft: false
-slug: "hello-world-catsby"
-category: "Design Inspiration"
+draft: true
+slug: "java-equals-hashcode"
+category: "java"
 tags:
-  - "Handwriting"
-  - "Learning to write"
-description: "Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum."
+  - "java"
+  - "development"
+description: "Hi, My name is Deye, this is my space on the internet. Where I will post that I have learned and important things related to software development."
 socialImage: "/media/image-2.jpg"
 ---
 
