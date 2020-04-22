@@ -8,14 +8,32 @@ category: "java"
 tags:
   - "java"
   - "development"
-description: "Hi, My name is Deye, this is my space on the internet. Where I will post that I have learned and important things related to software development."
+description: "An example of the importance of Equals and HashCode in Java"
 socialImage: "/media/image-2.jpg"
 ---
 
-Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum.
+The equals() and hashCode() methods are methods defined in the Object class (java.lang.Object). Since Object is the 
+parent class of all objects in Java, they are always available.
 
-![Nulla faucibus vestibulum eros in tempus. Vestibulum tempor imperdiet velit nec dapibus](/media/image-2.jpg)
+Their main function is to allow comparison of objects and determine when they are equal. Without these methods the 
+solution would be to compare each field of the object.
 
-Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. 
+When these methods are not overridden, Java uses the default implementation. The problem is that the standard 
+implementation compares the memory addresses, not the contents of the objects.
 
-Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus.
+The solution is to override the method, but the method contract for that method follows the following rules:
+
+Reflexivity: An object is equal to itself, which means that p1.equals(p1) must return true.
+
+
+```java
+
+class Person {
+
+    private Integer id;
+
+    private String name;
+
+}
+
+```
