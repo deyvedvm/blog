@@ -14,16 +14,7 @@ module.exports = {
     {
       label: 'Articles',
       path: '/'
-    },
-    {
-      label: 'About me',
-      path: '/pages/about'
-    },
-    {
-      label: 'Contact me',
-      path: '/pages/contacts'
-    }
-  ],
+    }],
   author: {
     name: 'Deyve Machado',
     photo: '/photo.jpg',
@@ -31,7 +22,7 @@ module.exports = {
     contacts: {
       email: 'dvmachado@id.uff.br',
       facebook: '#',
-      telegram: '#',
+      telegram: 'deyvedvm',
       twitter: 'deyvedvm',
       github: 'deyvedvm',
       rss: '',
