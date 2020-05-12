@@ -23,37 +23,37 @@ os endereços de memória, não o conteúdo dos objetos.
 
 ```jsp
 
-    public class Person {
+public class Person {
 
-        private final Integer id;
+     private final Integer id;
 
-        private final String name;
+     private final String name;
 
-        public Person(Integer id, String name) {
-            this.id = id;
-            this.name = name;
-        }
-    }
+          public Person(Integer id, String name) {
+          this.id = id;
+          this.name = name;
+     }
+}
 
 ```
 
 ```jsp
 
-    Person person = new Person(1, "Senna");
-    Person samePerson = new Person(1, "Senna");
+Person person = new Person(1, "Senna");
+Person samePerson = new Person(1, "Senna");
 
-    System.out.println("Person: " + person + " HashCode: " + person.hashCode());
-    System.out.println("Person: " + samePerson + " HashCode: " + samePerson.hashCode());
+System.out.println("Person: " + person + " HashCode: " + person.hashCode());
+System.out.println("Person: " + samePerson + " HashCode: " + samePerson.hashCode());
 
-    System.out.println("Are Equals?: " + person.equals(samePerson));
+System.out.println("Are Equals?: " + person.equals(samePerson));
 
 ```
 
 ```bash
 
-    Person: Person(id=1, name=Senna) HashCode: 2001049719
-    Person: Person(id=1, name=Senna) HashCode: 1096979270
-    Are Equals?: false
+Person: Person(id=1, name=Senna) HashCode: 2001049719
+Person: Person(id=1, name=Senna) HashCode: 1096979270
+Are Equals?: false
 
 ```
 
@@ -73,27 +73,28 @@ Então o contrato do método equals () da classe Person pode ser reescrito da se
 
 ```jsp
 
-    @Override
-    public boolean equals(Object obj) {
+@Override
+public boolean equals(Object obj) {
 
-        if (this == obj) {
-            return true;
-        }
+     if (this == obj) {
+          return true;
+     }
 
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
+     if (obj == null) {
+          return false;
+     }
 
-        final Person other = (Person) obj;
-        if (!this.id.equals(other.id)) {
-            return false;
-        }
+     if (getClass() != obj.getClass()) {
+          return false;
+     }
 
-        return Objects.equals(this.name, other.name);
-    }
+     final Person other = (Person) obj;
+     if (!this.id.equals(other.id)) {
+          return false;
+     }
+
+     return Objects.equals(this.name, other.name);
+}
 
 ```
 
@@ -101,7 +102,7 @@ Agora executando o teste de igualdade novamente:
 
 ```bash
 
-    Are Equals?: true
+Are Equals?: true
 
 ```
 
@@ -109,14 +110,14 @@ Parece que o problema foi solucionado, mas se adicionarmos os dois objetos a uma
 
 ```jsp
 
-    Set<Person> persons = new HashSet<>();
-    persons.add(person);
-    persons.add(samePerson);
+Set<Person> persons = new HashSet<>();
+persons.add(person);
+persons.add(samePerson);
 
-    System.out.println("Person: " + person + " HashCode: " + person.hashCode());
-    System.out.println("Person: " + samePerson + " HashCode: " + samePerson.hashCode());
-    System.out.println("Set size: " + persons.size());
-    System.out.println("Set contains: Senna: " + persons.contains(new Person(1, "Senna")));
+System.out.println("Person: " + person + " HashCode: " + person.hashCode());
+System.out.println("Person: " + samePerson + " HashCode: " + samePerson.hashCode());
+System.out.println("Set size: " + persons.size());
+System.out.println("Set contains: Senna: " + persons.contains(new Person(1, "Senna")));
 
 ```
 
@@ -134,15 +135,15 @@ seguintes regras:
 
 ```jsp
 
-    @Override
-    public int hashCode() {
+@Override
+public int hashCode() {
 
-        int hash = 7;
-        hash = 79 * hash + this.id;
-        hash = 79 * hash + Objects.hashCode(this.name);
+     int hash = 7;
+     hash = 79 * hash + this.id;
+     hash = 79 * hash + Objects.hashCode(this.name);
 
-        return hash;
-    }
+     return hash;
+}
 
 ```
 
@@ -150,10 +151,10 @@ Agora ao executar novamente veremos que o hashCode é o mesmo e agora a coleçã
 
 ```jsp
 
-    Person: Person(id=1, name=Senna) HashCode: 79814117
-    Person: Person(id=1, name=Senna) HashCode: 79814117
-    Set size: 1
-    Set contains: Senna: true
+Person: Person(id=1, name=Senna) HashCode: 79814117
+Person: Person(id=1, name=Senna) HashCode: 79814117
+Set size: 1
+Set contains: Senna: true
 
 ```
 
