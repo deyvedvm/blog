@@ -1,6 +1,6 @@
 ---
 title: Java - Equals and HashCode
-date: "2020-05-11T01:39:05.944Z"
+date: "2020-05-11T22:29:53.365024Z"
 template: "post"
 draft: false
 slug: "java-equals-hashcode"
@@ -12,14 +12,14 @@ description: "Um exemplo da importância do Equals e HashCode no Java"
 socialImage: "/media/java.jpg"
 ---
 
-Os métodos equals () e hashCode () são métodos definidos na classe Object (java.lang.Object). Como Object é o
+Os métodos equals () e hashCode () são métodos definidos na classe Object (java.lang.Object). Como Object é a
 classe pai de todos os objetos em Java, eles estão sempre disponíveis.
 
-Sua principal função é permitir a comparação de objetos e determinar quando são iguais. Sem esses métodos, o
-A solução seria comparar cada campo do objeto.
+Sua principal função é permitir a comparação de objetos e determinar quando são iguais. Sem esses métodos a solução 
+seria comparar cada campo do objeto.
 
-Quando esses métodos não são sobrescritos, o Java usa a implementação padrão. O problema é que a implementação compara 
-os endereços de memória, não o conteúdo dos objetos.
+Quando esses métodos não são sobrescritos, o Java usa a implementação padrão. O problema é que a implementação padrão 
+compara os endereços de memória, não o conteúdo dos objetos.
 
 ```jsp
 
@@ -61,9 +61,9 @@ A solução é sobrescrever o método, mas essa sobrescrita deve seguir as segui
 
 - Reflexividade: Um objeto é igual a si mesmo, o que significa que p1.equals(p1) deve retornar verdadeiro.
 
-- Simetria: p1.equals(p2) deve retornar o mesmo resultado (verdadeiro / falso) que p2.equals (p1)
+- Simetria: p1.equals(p2) deve retornar o mesmo resultado (verdadeiro / falso) que p2.equals(p1).
 
-- Transitivo: Se p1.equals (p2) e p2.equals(p3), então também p1.equals (p3).
+- Transitivo: Se p1.equals(p2) e p2.equals(p3), então também p1.equals(p3).
 
 - Consistente: Dois objetos iguais devem permanecer iguais o tempo todo, a menos que um deles seja alterado.
 
@@ -106,7 +106,7 @@ Are Equals?: true
 
 ```
 
-Parece que o problema foi solucionado, mas se adicionarmos os dois objetos a uma Collection feremos outro problema:
+Parece que o problema foi solucionado, mas se adicionarmos os dois objetos a uma Collection teremos outro problema:
 
 ```jsp
 
@@ -126,12 +126,14 @@ Além disso, deveria conter Senna também.
 
 Isso ocorre pois numa coleção o Java confere o HashCode que foi criado ao instaciar um objeto para acelerar as buscas. 
 Então não basta sobrescrever o equals(), somos obrigados a também sobrescrever o hashCode, obedecendo as 
-seguintes regras:
+seguintes regras abaixo:
 
 - Dois objetos devem retornar o mesmo hash code.
-- Se o objeto não foi alterado o hash code dever ser o mesmo
-- Quanto o método equal() sobrescrito obrigatóriamente o médoto hashCode() deve ser sobrescrito, e vice versa.
-- Use o mesmo identificado nos dois métodos e na mesma ordem. 
+- Se o objeto não foi alterado o hash code dever ser o mesmo.
+- Quanto o método equal() for sobrescrito obrigatóriamente o médoto hashCode() deve ser sobrescrito, e vice versa.
+- Use o mesmo identificador nos dois métodos e na mesma ordem. 
+
+Um exemplo de rescrita do método hashCode seria esse:
 
 ```jsp
 
@@ -147,7 +149,7 @@ public int hashCode() {
 
 ```
 
-Agora ao executar novamente veremos que o hashCode é o mesmo e agora a coleção tem apenas um item sem duplicação.
+Agora ao executar novamente veremos que o hashCode é o mesmo e a coleção tem apenas um item sem duplicação:
 
 ```jsp
 
