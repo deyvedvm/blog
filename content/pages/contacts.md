@@ -1,6 +1,7 @@
 ---
 title: "Contact me"
 template: "page"
+draft: true
 socialImage: "/media/image-4.jpg"
 ---
 

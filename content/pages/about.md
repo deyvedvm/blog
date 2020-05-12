@@ -1,6 +1,7 @@
 ---
 title: "About me"
 template: "page"
+draft: true
 socialImage: "/media/image-2.jpg"
 ---
 
