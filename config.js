@@ -6,7 +6,7 @@ module.exports = {
   title: 'Blog by Deyve Machado',
   subtitle: 'Success is the sum of small efforts repeated day after day',
   copyright: '© All rights reserved.',
-  disqusShortname: 'deyvedvm',
+  disqusShortname: 'deyve-dev',
   postsPerPage: 4,
   googleAnalyticsId: 'UA-73379983-2',
   useKatex: false,
