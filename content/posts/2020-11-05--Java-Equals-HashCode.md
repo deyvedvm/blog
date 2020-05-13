@@ -12,8 +12,8 @@ description: "Um exemplo da importância do Equals e HashCode no Java"
 socialImage: "/media/java.jpg"
 ---
 
-Os métodos equals () e hashCode () são métodos definidos na classe Object (java.lang.Object). Como Object é a
-classe pai de todos os objetos em Java, eles estão sempre disponíveis.
+Os métodos equals() e hashCode() são métodos definidos na classe Object (java.lang.Object). Como Object é a classe 
+pai de todos os objetos em Java, eles estão sempre disponíveis.
 
 Sua principal função é permitir a comparação de objetos e determinar quando são iguais. Sem esses métodos a solução 
 seria comparar cada campo do objeto.
@@ -22,7 +22,6 @@ Quando esses métodos não são sobrescritos, o Java usa a implementação padr�
 compara os endereços de memória, não o conteúdo dos objetos.
 
 ```jsp
-
 public class Person {
 
      private final Integer id;
@@ -34,11 +33,9 @@ public class Person {
           this.name = name;
      }
 }
-
 ```
 
 ```jsp
-
 Person person = new Person(1, "Senna");
 Person samePerson = new Person(1, "Senna");
 
@@ -46,15 +43,12 @@ System.out.println("Person: " + person + " HashCode: " + person.hashCode());
 System.out.println("Person: " + samePerson + " HashCode: " + samePerson.hashCode());
 
 System.out.println("Are Equals?: " + person.equals(samePerson));
-
 ```
 
 ```bash
-
 Person: Person(id=1, name=Senna) HashCode: 2001049719
 Person: Person(id=1, name=Senna) HashCode: 1096979270
 Are Equals?: false
-
 ```
 
 A solução é sobrescrever o método, mas essa sobrescrita deve seguir as seguintes regras:
@@ -69,10 +63,9 @@ A solução é sobrescrever o método, mas essa sobrescrita deve seguir as segui
 
 - Nulo retorna falso: Todos os objetos devem ser diferentes de nulos.
 
-Então o contrato do método equals () da classe Person pode ser reescrito da seguinte maneira:
+Então o contrato do método equals() da classe Person pode ser reescrito da seguinte maneira:
 
 ```jsp
-
 @Override
 public boolean equals(Object obj) {
 
@@ -95,21 +88,17 @@ public boolean equals(Object obj) {
 
      return Objects.equals(this.name, other.name);
 }
-
 ```
 
 Agora executando o teste de igualdade novamente:
 
 ```bash
-
 Are Equals?: true
-
 ```
 
 Parece que o problema foi solucionado, mas se adicionarmos os dois objetos a uma Collection teremos outro problema:
 
 ```jsp
-
 Set<Person> persons = new HashSet<>();
 persons.add(person);
 persons.add(samePerson);
@@ -118,7 +107,6 @@ System.out.println("Person: " + person + " HashCode: " + person.hashCode());
 System.out.println("Person: " + samePerson + " HashCode: " + samePerson.hashCode());
 System.out.println("Set size: " + persons.size());
 System.out.println("Set contains: Senna: " + persons.contains(new Person(1, "Senna")));
-
 ```
 
 Conforme a definição anterior person e samePerson são iguais; portanto, o tamanho do HashSet deveria ser 1, e não 2. 
@@ -136,7 +124,6 @@ seguintes regras abaixo:
 Um exemplo de rescrita do método hashCode seria esse:
 
 ```jsp
-
 @Override
 public int hashCode() {
 
@@ -146,20 +133,16 @@ public int hashCode() {
 
      return hash;
 }
-
 ```
 
 Agora ao executar novamente veremos que o hashCode é o mesmo e a coleção tem apenas um item sem duplicação:
 
 ```jsp
-
 Person: Person(id=1, name=Senna) HashCode: 79814117
 Person: Person(id=1, name=Senna) HashCode: 79814117
 Set size: 1
 Set contains: Senna: true
-
 ```
-
 
 
  
