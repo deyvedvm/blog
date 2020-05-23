@@ -143,7 +143,8 @@ Person: Person(id=1, name=Senna) HashCode: 79814117
 Set size: 1
 Set contains: Senna: true
 ```
-
+Uma dúvida que ainda pode ficar é na implementação desses métodos. Mas as principais IDEs do mercado tem um atalho para
+criar esses métodos para você. Uma outra opção que uso muito é a anotação @EqualsAndHashCode do projeto [Lombok](https://projectlombok.org)
 
  
 
