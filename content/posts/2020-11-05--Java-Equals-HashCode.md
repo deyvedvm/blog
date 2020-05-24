@@ -12,14 +12,11 @@ description: "Um exemplo da importância do Equals e HashCode no Java"
 socialImage: "/media/java.jpg"
 ---
 
-Os métodos equals() e hashCode() são métodos definidos na classe Object (java.lang.Object). Como Object é a classe 
-pai de todos os objetos em Java, eles estão sempre disponíveis.
+Os métodos equals() e hashCode() são métodos definidos na classe Object (java.lang.Object). Como Object é a classe pai de todos os objetos em Java, eles estão sempre disponíveis.
 
-Sua principal função é permitir a comparação de objetos e determinar quando são iguais. Sem esses métodos a solução 
-seria comparar cada campo do objeto.
+Sua principal função é permitir a comparação de objetos e determinar quando são iguais. Sem esses métodos a solução seria comparar cada campo do objeto.
 
-Quando esses métodos não são sobrescritos, o Java usa a implementação padrão. O problema é que a implementação padrão 
-compara os endereços de memória, não o conteúdo dos objetos.
+Quando esses métodos não são sobrescritos, o Java usa a implementação padrão. O problema é que a implementação padrão compara os endereços de memória, não o conteúdo dos objetos.
 
 ```jsp
 public class Person {
@@ -109,12 +106,9 @@ System.out.println("Set size: " + persons.size());
 System.out.println("Set contains: Senna: " + persons.contains(new Person(1, "Senna")));
 ```
 
-Conforme a definição anterior person e samePerson são iguais; portanto, o tamanho do HashSet deveria ser 1, e não 2. 
-Além disso, deveria conter Senna também. 
+Conforme a definição anterior person e samePerson são iguais; portanto, o tamanho do HashSet deveria ser 1, e não 2. Além disso, deveria conter Senna também. 
 
-Isso ocorre pois numa coleção o Java confere o HashCode que foi criado ao instaciar um objeto para acelerar as buscas. 
-Então não basta sobrescrever o equals(), somos obrigados a também sobrescrever o hashCode, obedecendo as 
-seguintes regras abaixo:
+Isso ocorre pois numa coleção o Java confere o HashCode que foi criado ao instaciar um objeto para acelerar as buscas. Então não basta sobrescrever o equals(), somos obrigados a também sobrescrever o hashCode, obedecendo as seguintes regras abaixo:
 
 - Dois objetos devem retornar o mesmo hash code.
 - Se o objeto não foi alterado o hash code dever ser o mesmo.
@@ -143,8 +137,7 @@ Person: Person(id=1, name=Senna) HashCode: 79814117
 Set size: 1
 Set contains: Senna: true
 ```
-Uma dúvida que ainda pode ficar é na implementação desses métodos. Mas as principais IDEs do mercado tem um atalho para
-criar esses métodos para você. Uma outra opção que uso muito é a anotação @EqualsAndHashCode do projeto [Lombok](https://projectlombok.org)
+Uma dúvida que ainda pode ficar é na implementação desses métodos. Mas as principais IDEs do mercado tem um atalho para criar esses métodos para você. Uma outra opção que uso muito é a anotação @EqualsAndHashCode do projeto [Lombok](https://projectlombok.org)
 
  
 
