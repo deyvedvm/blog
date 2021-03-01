@@ -6954,6 +6954,11 @@ gatsby-plugin-catch-links@^2.1.21:
     "@babel/runtime" "^7.7.6"
     escape-string-regexp "^1.0.5"
 
+gatsby-plugin-disqus@^1.2.2:
+  version "1.2.2"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-disqus/-/gatsby-plugin-disqus-1.2.2.tgz#d10e72c2ac0f7205abd7dda2e8cb4ecc0743a824"
+  integrity sha512-RWiU8Jtg94kVphjBnxqnF+0txyJ3eZN/9vw/VlMgz0mor1FwULkiiiOyNXAJxbX6tFqYmypnmfa+edQWX/rMpQ==
+
 gatsby-plugin-feed@^2.3.25:
   version "2.3.27"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-feed/-/gatsby-plugin-feed-2.3.27.tgz#c3dd793bb22d62563687350adfd7cedbd84d826b"
@@ -13346,10 +13351,10 @@ pretty-format@^24.9.0:
     ansi-styles "^3.2.0"
     react-is "^16.8.4"
 
-prismjs@^1.17.1:
-  version "1.19.0"
-  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.19.0.tgz#713afbd45c3baca4b321569f2df39e17e729d4dc"
-  integrity sha512-IVFtbW9mCWm9eOIaEkNyo2Vl4NnEifis2GQ7/MLRG5TQe6t+4Sj9J5QWI9i3v+SS43uZBlCAOn+zYTVYQcPXJw==
+prismjs@^1.23.0:
+  version "1.23.0"
+  resolved "https://registry.yarnpkg.com/prismjs/-/prismjs-1.23.0.tgz#d3b3967f7d72440690497652a9d40ff046067f33"
+  integrity sha512-c29LVsqOaLbBHuIbsTxaKENh1N2EQBOHaWv7gkHN4dgRbxSREqDnDbtFJYdpPauS4YCplMSNCABQ6Eeor69bAA==
   optionalDependencies:
     clipboard "^2.0.0"
 
