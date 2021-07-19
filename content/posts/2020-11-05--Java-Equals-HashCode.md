@@ -2,7 +2,7 @@
 title: Java - Equals and HashCode
 date: "2020-05-11T22:29:53.365024Z"
 template: "post"
-draft: false
+draft: true
 slug: "java-equals-hashcode"
 category: "java"
 tags:
