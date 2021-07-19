@@ -116,5 +116,8 @@
     "stylelint": "12.0.1",
     "stylelint-config-recommended-scss": "4.1.0",
     "stylelint-scss": "3.13.0"
+  },
+  "optionalDependencies": {
+    "fsevents": "^2.3.2"
   }
 }
