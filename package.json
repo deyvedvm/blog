@@ -118,6 +118,6 @@
     "stylelint-scss": "3.13.0"
   },
   "optionalDependencies": {
-    "fsevents": "^2.3.2"
+    "fsevents": "2.1.2"
   }
 }
