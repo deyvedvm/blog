@@ -4,3 +4,7 @@ dist/
 npm-debug.log
 .idea/
 *.iml
+
+# Local only
+CLAUDE.md
+linkedin-post.md
