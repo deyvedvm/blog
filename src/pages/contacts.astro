@@ -1,0 +1,19 @@
+---
+import { getCollection, render } from 'astro:content';
+import Blog from '../layouts/Blog.astro';
+
+const allPages = await getCollection('pages');
+const page = allPages.find((p) => p.id === 'contacts.md' || p.id === 'contacts');
+const { Content } = page ? await render(page) : { Content: null };
+---
+
+<Blog title={page?.data.title ?? 'Contact'}>
+  <article>
+    <h1 class="text-3xl font-bold text-zinc-900 dark:text-zinc-100 mb-8">
+      {page?.data.title ?? 'Contact'}
+    </h1>
+    <div class="prose prose-zinc dark:prose-invert prose-a:text-indigo-600 dark:prose-a:text-indigo-400 max-w-none">
+      {Content && <Content />}
+    </div>
+  </article>
+</Blog>

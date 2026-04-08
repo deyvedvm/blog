@@ -1,0 +1,35 @@
+---
+import { SITE } from '../config';
+
+interface Props {
+  identifier: string;
+  title: string;
+  url: string;
+}
+
+const { identifier, title, url } = Astro.props;
+const shortname = SITE.disqusShortname;
+---
+
+{shortname && (
+  <div class="mt-12 pt-8 border-t border-zinc-100 dark:border-zinc-800">
+    <div id="disqus_thread"></div>
+    <script define:vars={{ shortname, identifier, url, title }}>
+      var disqus_config = function () {
+        this.page.url = url;
+        this.page.identifier = identifier;
+        this.page.title = title;
+      };
+      (function () {
+        var d = document,
+          s = d.createElement('script');
+        s.src = 'https://' + shortname + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>
+      Habilite o JavaScript para ver os <a href="https://disqus.com/?ref_noscript">comentários do Disqus.</a>
+    </noscript>
+  </div>
+)}

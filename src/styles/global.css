@@ -1,0 +1,40 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply antialiased;
+  }
+
+  /* Inline code */
+  :not(pre) > code {
+    @apply bg-zinc-100 dark:bg-zinc-800 text-zinc-800 dark:text-zinc-200 px-1.5 py-0.5 rounded text-[0.85em] font-mono;
+  }
+
+  /* Shiki code blocks */
+  pre {
+    @apply rounded-xl overflow-x-auto text-sm leading-relaxed p-5;
+  }
+
+  pre code {
+    @apply bg-transparent p-0;
+  }
+}
+
+/* Prose customizations */
+.prose pre {
+  @apply !bg-zinc-900 dark:!bg-zinc-950;
+}
+
+.prose :where(a):not(:where([class~='not-prose'] *)) {
+  @apply font-medium no-underline border-b border-indigo-300 dark:border-indigo-700 hover:border-indigo-500 dark:hover:border-indigo-400 transition-colors;
+}

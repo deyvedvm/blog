@@ -1,0 +1,65 @@
+---
+interface Props {
+  title: string;
+  slug: string;
+  date: Date;
+  description: string;
+  category?: string;
+  tags?: string[];
+}
+
+const { title, slug, date, description, category } = Astro.props;
+
+const formattedDate = new Intl.DateTimeFormat('pt-BR', {
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+}).format(date);
+
+const categorySlug = category
+  ? category.toLowerCase().replace(/\s+/g, '-')
+  : null;
+---
+
+<article class="group py-8 border-b border-zinc-100 dark:border-zinc-800/60 last:border-0">
+  <div class="flex flex-wrap items-center gap-x-2.5 gap-y-1 mb-3">
+    <time
+      datetime={date.toISOString()}
+      class="text-xs font-medium text-zinc-400 dark:text-zinc-500 uppercase tracking-wide"
+    >
+      {formattedDate}
+    </time>
+    {categorySlug && category && (
+      <>
+        <span class="text-zinc-200 dark:text-zinc-700" aria-hidden="true">·</span>
+        <a
+          href={`/category/${categorySlug}`}
+          class="text-xs font-semibold uppercase tracking-wide text-indigo-500 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 transition-colors"
+        >
+          {category}
+        </a>
+      </>
+    )}
+  </div>
+
+  <h2 class="text-xl font-bold text-zinc-900 dark:text-zinc-100 leading-snug group-hover:text-indigo-700 dark:group-hover:text-indigo-400 transition-colors">
+    <a href={`/${slug}`}>{title}</a>
+  </h2>
+
+  {description && (
+    <p class="mt-2 text-sm text-zinc-500 dark:text-zinc-400 leading-relaxed line-clamp-2">
+      {description}
+    </p>
+  )}
+
+  <a
+    href={`/${slug}`}
+    class="mt-4 inline-flex items-center gap-1.5 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-800 dark:hover:text-indigo-300 transition-colors"
+    aria-label={`Ler: ${title}`}
+  >
+    Ler artigo
+    <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M5 12h14M12 5l7 7-7 7"/>
+    </svg>
+  </a>
+</article>

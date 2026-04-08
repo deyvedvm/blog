@@ -1,0 +1,62 @@
+---
+import { getCollection } from 'astro:content';
+import Blog from '../../layouts/Blog.astro';
+import PostCard from '../../components/PostCard.astro';
+import Pagination from '../../components/Pagination.astro';
+import { SITE } from '../../config';
+
+export async function getStaticPaths() {
+  const allPosts = await getCollection('posts', ({ data }) => !data.draft);
+
+  const categoryMap = new Map<string, typeof allPosts>();
+  for (const post of allPosts) {
+    if (!post.data.category) continue;
+    const slug = post.data.category.toLowerCase().replace(/\s+/g, '-');
+    if (!categoryMap.has(slug)) categoryMap.set(slug, []);
+    categoryMap.get(slug)!.push(post);
+  }
+
+  return [...categoryMap.entries()].map(([categorySlug, posts]) => {
+    posts.sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+    const categoryName = posts[0]?.data.category ?? categorySlug;
+    return {
+      params: { category: categorySlug },
+      props: {
+        posts,
+        categoryName,
+        totalPages: Math.ceil(posts.length / SITE.postsPerPage),
+      },
+    };
+  });
+}
+
+const { posts: allCatPosts, categoryName, totalPages } = Astro.props;
+const category = Astro.params.category;
+const pagePosts = allCatPosts.slice(0, SITE.postsPerPage);
+---
+
+<Blog title={`Categoria: ${categoryName}`}>
+  <div>
+    <header class="mb-8">
+      <p class="text-sm text-zinc-500 dark:text-zinc-400 mb-1">Categoria</p>
+      <h1 class="text-2xl font-bold text-zinc-900 dark:text-zinc-100">{categoryName}</h1>
+    </header>
+
+    {pagePosts.map((post: any) => (
+      <PostCard
+        title={post.data.title}
+        slug={post.data.slug}
+        date={post.data.date}
+        description={post.data.description}
+        category={post.data.category}
+        tags={post.data.tags}
+      />
+    ))}
+
+    <Pagination
+      currentPage={1}
+      totalPages={totalPages}
+      nextUrl={totalPages > 1 ? `/category/${category}/2` : undefined}
+    />
+  </div>
+</Blog>
